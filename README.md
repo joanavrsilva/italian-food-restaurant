@@ -45,6 +45,18 @@
 
 ## User stories
 
+*	As a User, I want to easily understand the main purpose of the website and learn more about the restaurant history.
+*	As a User, I want to be able to easily navigate throughout the site.
+*	As a User, I want to make a reservation quickly and easily
+*	As a User I want to easily find contact information.
+*	As User, I can register an account to easily manage my reservations
+*	As a User I want to sign up to the Newsletter so that I am emailed with updates, news, promotions, and others.
+*	As a User, I want to find social links to follow the restaurant updates, news, promotions, and others.
+*	As a User I want to have a good experience.
+*	As a User I want a appealing website structure.
+*	As the administrator I want to easily manage the reservations: delete, add and change
+
+
 ### As a business owner:
 
 
