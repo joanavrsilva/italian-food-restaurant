@@ -9,4 +9,4 @@ from django.shortcuts import render
 def index(request):
     """ A view to return the index page """
 
-    return render(request, 'italian_restaurant_website/index.html')
+    return render(request, 'home/index.html')
