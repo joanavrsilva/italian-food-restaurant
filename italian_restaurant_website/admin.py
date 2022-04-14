@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Restaurants
 
-# Register your models here.
+@admin.register(Restaurant)
+class RestaurantAdmin(admin.ModelAdmin):
+    list_display = ('name', 'opening_time', 'closing_time')
+    search_fields = ('name',)
