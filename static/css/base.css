@@ -56,6 +56,31 @@ body {
     border: 1px solid black !important;
 }
 
+/* ---------------------------- Footer */S
+footer {
+    background-color: #201622;
+    text-align: center;
+    color: #F4F7F5;
+}
+
+footer > p, ul {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+footer > p {
+    font-size: 18px;
+}
+
+.list-inline-item {
+    margin-left: 10px;
+}
+
+.social {
+    font-size: 25px;
+    padding: 10px;
+    color: #F4F7F5;
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
