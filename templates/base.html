@@ -37,29 +37,22 @@
     <title>Il oro d'Italia Restaurant {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-pizza-slice"></i> The Pizza Oven</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOptions"
-                aria-controls="navbarOptions" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarOptions">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}" aria-label="Go to the top of the home page">Home</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" aria-label="Go to the about section">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" aria-label="Go to the menu section">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" aria-label="Go to the menu section">Location</a>
-                    </li>
-                </ul>
-                </div>
+    <header class="container-fluid fixed-top">
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+            <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                <h2 class="logo-font text-black my-0"><strong>Il oro d'Italia</strong></h2>
+            </a>
+        </div>
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+            <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                <li class="list-inline-item dropdown">
+                    <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center">
+                            <div><i class="fas fa-user fa-lg"></i></div>
+                            <p class="my-0">My Account</p>
+                        </div>
+                    </a>
                     <div class="dropdown-menu border-0" aria-labelledby="user-options">
                         {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
@@ -118,6 +111,35 @@
 
     {% block postloadjs %}
     {% endblock %}
-    
+    <footer class="container-fluid">
+        <p>Find us on:</p>
+        <ul class="list-inline social-links">
+            <li class="list-inline-item">
+                <a target="_blank" href="https://facebook.com">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    <span class="sr-only">Facebook</span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a target="_blank" href="#">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                    <span class="sr-only">Twitter</span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a target="_blank" href="#">
+                    <i class="fab fa-pinterest" aria-hidden="true"></i>
+                    <span class="sr-only">Pinterest</span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a target="_blank" href="#">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+            </li>
+        </ul>
+        </div>
+    </footer>
   </body>
 </html>
