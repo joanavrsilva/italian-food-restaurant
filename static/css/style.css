@@ -1,87 +1,4 @@
-html {
-    height: 100%;
-}
-
-body {
-    background: url('/media/pizza-homepage-background-image.png') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(100vh - 164px);
-    color: #555;
-    font-family: 'Lato';
-}
-
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-.logo-font {
-    text-transform: uppercase;
-}
-
-.main-logo-link {
-    width: fit-content;
-}
-
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
-}
-
-.text-black {
-    color: #000 !important;
-}
-
-.border-black {
-    border: 1px solid black !important;
-}
-
-/* ---------------------------- Footer */S
-footer {
-    background-color: #201622;
-    text-align: center;
-    color: #F4F7F5;
-}
-
-footer > p, ul {
-    display: inline-block;
-    margin-bottom: 0;
-}
-
-footer > p {
-    font-size: 18px;
-}
-
-.list-inline-item {
-    margin-left: 10px;
-}
-
-.social {
-    font-size: 25px;
-    padding: 10px;
-    color: #F4F7F5;
-
-    /* ------------------General Styles------------------ */
+/* ------------------General Styles------------------ */
 
 /* Sticky Footer set-up */
 /* Adapted from https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
@@ -434,26 +351,208 @@ iframe {
     color: red;
 }
 
-/* -------------------------------- Media Queries */
+/* -------------------Media queries------------------ */
 
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+/* For screens 376px and up */
+@media screen and (min-width: 376px) {
+    .location-text p {
+        font-size: 18px;
+    }
 }
 
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
+/* For screens 450px and up */
+@media screen and (min-width: 450px) {
+    h1 {
+        font-size: 36px;
     }
 
-    .header-container {
-        padding-top: 164px;
+    h2 {
+        font-size: 33px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .book-links {
+        display: inline;
+    }
+}
+
+/* For screens 576px and up */
+@media screen and (min-width: 576px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .list-inline-item {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .location-text p {
+        font-size: 20px;
+    }
+
+    .booking-info {
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+    }
+
+    .manage-sizes {
+        display: inline-block;
+    }
+}
+
+/* For screens 768px and up */
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 45px;
+    }
+
+    h2 {
+        font-size: 39px;
+    }
+
+    h3 {
+        font-size: 26px;
+    }
+
+    .list-inline-item {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .menu-text {
+        text-align: left;
+    }
+
+    .location-text p, .location-title {
+        text-align: left;
+    }
+
+    .opening-hours {
+        padding-left: 35px;
+    }
+
+    .messages {
+        left: 17%;
+    }
+
+    .about-content {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+
+    .manage-sizes,
+    .manage-details {
+        display: block;
+    }
+}
+
+/* For screens 785px and up */
+@media screen and (min-width: 785px) {
+    .opening-wkday, .opening-wkend {
+        display: inline;
+    }
+    
+    .opening-wkday {
+        margin-left: 10px;
+    }
+    
+    .opening-wkend {
+        margin-left: 72px;
+    }
+}
+
+/* For screens 992px and up */
+@media screen and (min-width: 992px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    h2 {
+        font-size: 43px;
+    }
+
+    h3 {
+        font-size: 28px;
+    }
+
+    .opening-wkday, .opening-wkend {
+        display: block;
+        margin-left: 0;
+    }
+
+    .opening-wkday {
+        margin-bottom: 10px;
+    }
+
+    .location-information {
+        padding-left: 10%;
+    }
+}
+
+/* For screens 1200px and up */
+@media screen and (min-width: 1200px) {
+    h1 {
+        font-size: 56px;
+    }
+
+    h2 {
+        font-size: 48px;
+    }
+
+    h3 {
+        font-size: 32px;
+    }
+
+    .menu-text {
+        padding-right: 1rem;
+        padding-left: 3rem;
+    }
+
+    .menu-pic1 {
+        padding-right: 3rem;
+    }
+
+    .menu-pic2 {
+        padding-right: 3rem;
+    }
+
+    .opening-wkday, .opening-wkend {
+        display: inline;
+    }
+
+    .opening-hours {
+        padding-left: 0;
+    }
+
+    .location-information {
+        padding-left: 5%;
+    }
+
+    .opening-wkday {
+        margin-left: 10px;
+    }
+    
+    .opening-wkend {
+        margin-left: 72px;
+    }
+
+    .messages {
+        left: 25%;
+    }
+
+    .manage-details {
+        display: inline-block;
     }
 }

@@ -1,6 +1,9 @@
-from django.db import models
-from cloudinary.models import CloudinaryField
+""" Models for the restaurant app. """
 import datetime
+from django.db import models
+from django.core.exceptions import ValidationError
+from cloudinary.models import CloudinaryField
+
 
 class Restaurant(models.Model):
     """

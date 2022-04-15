@@ -6,10 +6,10 @@ from .models import Restaurant, Table
 
 
 # Remove unrequired models from the admin panel.
-#admin.site.unregister(Site)
-#admin.site.unregister(SocialAccount)
-#admin.site.unregister(SocialToken)
-#admin.site.unregister(SocialApp)
+admin.site.unregister(Site)
+admin.site.unregister(SocialAccount)
+admin.site.unregister(SocialToken)
+admin.site.unregister(SocialApp)
 
 # Disable delete action for the site
 admin.site.disable_action('delete_selected')

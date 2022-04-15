@@ -1,12 +1,16 @@
+""" Views for the restaurant app. """
 from django.shortcuts import render
+from .models import Restaurant
 
-from django.shortcuts import render
-
-from django.shortcuts import render
-
-# Create your views here.
 
 def index(request):
-    """ A view to return the index page """
+    """
+    A view to return the homepage. Fields from the restaurant
+    model will be used to populate some sections of the page.
+    """
+    restaurant = Restaurant.objects.get(name="The Pizza Oven")
+    context = {
+        'restaurant': restaurant,
+    }
 
-    return render(request, 'home/index.html')
+    return render(request, 'restaurant/index.html', context)
