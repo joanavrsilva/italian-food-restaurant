@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block heading %}
+<!-- Page heading -->
+<div class="container-fluid heading-container">
+    <div class="row">
+        <div class="col my-auto text-center">
+            <div class="page-heading bg-color-faint txt-light">
+                <h1>{{ restaurant.name }}</h1>
+                <h2>South Bank</h2>
+            </div>
+            <a class="btn btn-large btn-red txt-light" href="{% url 'make_booking' %}"
+                aria-label="Go to the table booking form">Book Table</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- About us section -->
+<section id="about">
+    <div class="row bg-color-green txt-dark no-gutters px-2 about-content">
+        <div class="col text-center my-4">
+            <h3>About Us</h3>
+            {% if restaurant.decription %}
+                <p class="about-text lead my-0">{{ restaurant.description }}</p>
+            {% else %}
+                <p class="about-text lead my-0">Set in a fantastic South Bank location, our restaurant serves up authentic
+                    Italian pizzas in an informal relaxed setting. With delicious starters and freshly fired hand stretched
+                    pizzas we are a great place to catch up with friends and family whilst enjoying great food and a river
+                    view.</p>
+            {% endif %}
+        </div>
+    </div>
+    <!-- Image dividers -->
+    <div class="row no-gutters bg-color-green">
+        <div class="col-sm-6 col-lg-4 d-none d-sm-inline-block">
+            <img class="img-fluid"
+                src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954099/media/pizza1_diluuu.jpg"
+                alt="A pizza on a plate.">
+        </div>
+        <div class="col-lg-4 d-none d-lg-inline-block">
+            <img class="img-fluid"
+                src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954117/media/pizza2_qrxxfh.jpg"
+                alt="A pizza firing in a pizza oven.">
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+            <img class="img-fluid"
+                src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954095/media/pizza3_jhh8za.jpg"
+                alt="A pizza next to rosemary and some tomatoes.">
+        </div>
+    </div>
+</section>
+
+<!-- View menu section -->
+<section id="menu">
+    <div class="container-fluid bg-color-white txt-dark">
+        <div class="row">
+            <div class="col-12 col-md-4 offset-md-1 offset-xl-0 my-auto py-5 menu-text">
+                <h3>Menu</h3>
+                <p class="lead">
+                    Our pizzas are handmade using only the freshest ingredients.
+                </p>
+                <p class="lead">
+                    Why not check out our menu.
+                </p>
+                {% if "placeholder" in restaurant.menu.url %}
+                    <a class="btn btn-large btn-red txt-light" target="_blank"
+                        href="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954411/media/the-pizza-oven_menu_rcdcsi.jpg"
+                        aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
+                {% else %}
+                    <a class="btn btn-large btn-red txt-light" target="_blank" href="{{ restaurant.menu.url }}"
+                        aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
+                {% endif %}
+            </div>
+            <div class="col-xl-4 d-none d-xl-inline-block py-5 menu-pic1">
+                <img class="img-fluid"
+                    src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954097/media/pizza-making_kdkszl.jpg"
+                    alt="Hands kneading pizza dough">
+            </div>
+            <div class="col-6 col-xl-4 d-none d-md-inline-block py-5 menu-pic2">
+                <img class="img-fluid"
+                    src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954069/media/pizza-ingredients_kz1tvg.jpg"
+                    alt="Various pizza ingredients">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Location and opening times section -->
+<section id="location">
+    <div class="container-fluid bg-color-red">
+        <div class="row">
+            <div class="col-lg-5 order-2 order-lg-1 px-0">
+                <div class="map-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4966.4150964133705!2d-0.11525606640763726!3d51.50940817988433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b13ccb6055%3A0x8b75aa8f71277ddf!2s56%20Upper%20Ground%2C%20London%20SE1%209PP!5e0!3m2!1sen!2suk!4v1634117260344!5m2!1sen!2suk"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+            <div class="col-lg-7 order-1 order-lg-2 txt-light my-auto text-center">
+                <div class="row">
+                    <div class="col-12 col-md-10 col-lg-12 offset-md-1 offset-lg-0 mt-4 location-information">
+                        <h3 class="location-title display-6">Where to Find Us</h3>
+                    </div>
+                </div>
+                <div class="row location-text">
+                    <div class="col-md-5 offset-md-1 col-lg-7 offset-lg-0 mb-2 location-information">
+                        <p class="mb-0 lead">The Pizza Oven</p>
+                        <p class="mb-0 lead">56 Upper Ground, South Bank,<br>London. SE1 9PP</p>
+                        <p class="lead">Phone: 020 7946 0441</p>
+                        <p class="lead">The nearest tube station is Waterloo.</p>
+                    </div>
+                    <div class="col-md-5 col-lg-5 mb-4 opening-hours">
+                        <p class="lead">Opening Hours:</p>
+                        <p class="lead mb-0">
+                            Monday to Friday<span class="opening-wkday">{{ restaurant.opening_time|time:"H:i" }} -
+                                {{ restaurant.closing_time|time:"H:i" }}</span>
+                        </p>
+                        <p class="lead mb-0">
+                            Weekends<span class="opening-wkend">{{ restaurant.opening_time|time:"H:i" }} -
+                                {{ restaurant.closing_time|time:"H:i" }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

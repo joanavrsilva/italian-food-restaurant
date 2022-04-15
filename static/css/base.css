@@ -81,6 +81,359 @@ footer > p {
     padding: 10px;
     color: #F4F7F5;
 
+    /* ------------------General Styles------------------ */
+
+/* Sticky Footer set-up */
+/* Adapted from https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 45px);
+}
+
+/* Text */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.heading-text {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 29px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+.txt-light {
+    color: #F4F7F5;
+}
+
+.txt-dark {
+    color: #201622;
+}
+
+
+/* Background colours */
+.bg-color-faint {
+    background-color: rgba(32, 22, 34, 0.5);
+}
+
+.bg-color-white {
+    background-color: #F4F7F5;
+}
+
+.bg-color-dark {
+    background-color: #201622;
+}
+
+.bg-color-green {
+    background-color: #43b792;
+}
+
+.bg-color-red {
+    background-color: #b03f57;
+}
+
+.bg-color-trans {
+    background-color: transparent;
+}
+
+/* Buttons */
+.btn-red {
+    background-color: #b03f57;
+}
+
+.btn-red:hover {
+    background-color: #8a3244;
+}
+
+.btn-green {
+    background-color: #43b792;
+}
+
+.btn-green:hover {
+    background-color: #0A8A8E;
+    color: #F4F7F5;
+}
+
+.btn-white {
+    background-color: #F4F7F5;
+}
+
+.btn-white:hover {
+    background-color: #9DAEAD;
+}
+
+.btn-delete {
+    color: Red;
+    border: none;
+    background-color: transparent;
+}
+
+.btn-delete:hover {
+    text-decoration: underline;
+}
+
+/* --------------------base.html--------------------- */
+
+/* Messages */
+.messages {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    z-index: 1;
+}
+
+/* Nav */
+.nav-link,
+.navbar-brand {
+    color: #F4F7F5 !important;
+}
+
+.nav-link:hover,
+.navbar-brand:hover,
+.social:hover {
+    color: #9DAEAD !important;
+}
+
+/* Footer */
+footer {
+    height: 45px;
+    text-align: center;
+}
+
+footer > ul {
+    margin-bottom: 0;
+}
+
+.list-inline-item {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
+
+.social {
+    font-size: 25px;
+    padding: 10px;
+}
+
+/* ------------------accounts pages------------------ */
+
+.accounts-content {
+    flex: 1;
+    padding-top: 100px;
+}
+
+/* --------------------index.html-------------------- */
+
+/* Page Heading */
+.heading-container {
+    background-image: url('https://res.cloudinary.com/drjtefr2g/image/upload/v1635952343/media/restaurant_dt96wg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
+
+.heading-container > div {
+    height: 500px;
+}
+
+.page-heading {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* About Us section */
+#about {
+    flex: 1;
+}
+
+.about-text {
+    text-align: justify;
+}
+
+/* Menu Section */
+.menu-text {
+    text-align: center;
+}
+
+/* Location Section */
+.location-text p {
+    font-size: 16px;
+}
+
+.opening-wkday, .opening-wkend {
+    display: block;
+    margin-left: 0;
+}
+
+.map-wrapper {
+    height: 400px;
+}
+
+iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+/* ------------------Bookings Pages------------------ */
+
+/* Backgound for pages accessed by customer */
+/* make_booking, update_booking, my_bookings booking_confirmed */
+.customer-bookings {
+    background-image: url('https://res.cloudinary.com/drjtefr2g/image/upload/v1635954115/media/pizza4_bcovnq.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+}
+
+/* make_booking and update_booking pages */
+
+/* Booking form */
+.book-content {
+    padding-top: 100px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.book-form {
+    border-radius: 5px;
+}
+
+.book-intro {
+    font-size: 20px;
+}
+
+.book-intro a {
+    color: #F4F7F5;
+    text-decoration: underline;
+}
+
+.book-intro a:hover {
+    color: #9DAEAD;
+    text-decoration: underline;
+}
+
+.book-links {
+    display: block;
+}
+
+.book-instruction {
+    font-size: 18px;
+}
+
+.book-error div {
+    background-color: #FFF3CD;
+}
+
+.book-error li {
+    list-style: none;
+}
+
+/* booking_confirmed and my_bookings pages */
+
+.booking-confirmation {
+    padding-top: 120px;
+}
+
+.booking-title {
+    padding-top: 100px;
+}
+
+.booking-content {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.booking-card {
+    border: 1px solid #9DAEAD;
+    border-radius: 0.25rem;
+}
+
+.booking-image-cont {
+    width: 100%;
+    height: 200px;
+    background-image: url('https://res.cloudinary.com/drjtefr2g/image/upload/v1635952343/media/restaurant_dt96wg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.booking-contact {
+    word-wrap: break-word;
+}
+
+/* manage_bookings.html and booking_detail pages */
+
+.manage-bookings {
+    flex: 1;
+}
+
+.manage-content {
+    margin-top: 100px;
+}
+
+.manage-updated {
+    color: red;
+}
+
+.manage-name-label,
+.manage-details {
+    display: inline-block;
+}
+
+.manage-name {
+    margin-left: 21px;
+}
+
+.manage-table-no {
+    width: 100%;
+}
+
+.manage-table-no input {
+    width: 80%;
+}
+
+.manage-no-bookings {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* View Update and cancel booking links various pages */
+.manage-options a {
+    display: inline-block;
+}
+
+.manage-view {
+    color: green;
+}
+
+.manage-cancel {
+    color: red;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
