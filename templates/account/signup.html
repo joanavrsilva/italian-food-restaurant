@@ -1,21 +1,29 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+{% load crispy_forms_tags %}
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+<div class="container-fluid bg-color-white accounts-content txt-dark">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h3>{% trans "Sign Up" %}</h3>
+            <p>{% blocktrans %}Welcome to the Pizza Oven. Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mx-auto mb-4">
+            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <input type="hidden" name="next" value="{{ request.GET.next }}" />
+                <button class="btn btn-large btn-red txt-light" type="submit">{% trans "Sign Up" %}</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
