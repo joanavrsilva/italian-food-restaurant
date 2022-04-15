@@ -2,8 +2,8 @@
 import datetime
 from django import forms
 
-from .models import tables_bookings
-from .availability import find_tables
+from .models import Booking
+from .check_availability import find_tables
 
 
 class BookingForm(forms.ModelForm):
