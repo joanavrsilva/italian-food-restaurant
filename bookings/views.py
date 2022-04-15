@@ -4,8 +4,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from restaurant.models import italian_restaurant_website
-from .models import tables_bookings
+from restaurant.models import Restaurant
+from .models import Booking
 from .forms import BookingForm
 from .check_availability import create_booking_slots
 from .confirmation_email import send_confirmation_email

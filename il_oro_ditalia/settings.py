@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'italian_restaurant_website',
     'django.contrib.sites',
     'allauth',
     'allauth.account',

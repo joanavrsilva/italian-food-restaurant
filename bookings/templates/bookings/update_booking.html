@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<!-- Form for updating a booking -->
+<div class="container-fluid px-0 customer-bookings">
+    <div class="row book-content">
+        <div class="col-12 text-center">
+            <h3 class="txt-light mb-4">Update Booking</h3>
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto mb-4 book-form bg-color-red txt-light">
+            <p class="my-3 book-instruction">Edit the form below to update the booking:</p>
+            <form action="{% url 'update_booking' booking.id %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col book-error txt-dark">
+                        {{ booking_form | as_crispy_errors }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        {{ booking_form.date | as_crispy_field }}
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        {{ booking_form.time | as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ booking_form.party_size | as_crispy_field }}
+                        {{ booking_form.name | as_crispy_field }}
+                        {{ booking_form.email | as_crispy_field }}
+                        {{ booking_form.phone_number | as_crispy_field }}
+                        {{ booking_form.special_requirements | as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col pb-2">
+                        <button type="submit" class="btn btn-large btn-green txt-dark">Update Booking</button>
+                        {% if user.is_superuser %}
+                            <!-- Redirect restaurant owner to manage bookings page if they cancel -->
+                            <a href="{% url 'manage_bookings' %}" aria-label="Return to manage bookings page" class="btn btn-large btn-white txt-dark ml-2">Back</a>
+                        {% else %}
+                            <!-- Redirect customer to my bookings page if they cancel -->
+                            <a href="{% url 'my_bookings' %}" aria-label="return to my bookings page" class="btn btn-large btn-white txt-dark ml-2">Back</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

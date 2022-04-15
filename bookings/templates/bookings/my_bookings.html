@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Page for customers to view their current or future bookings -->
+<div class="container-fluid px-0 customer-bookings">
+    <div class="row no-gutters booking-title">
+        <div class="col-12 text-center txt-light">
+            <h3 class="mb-4">Upcoming Bookings</h3>
+            <div class="text-center">
+                <a class="btn btn-large btn-red txt-light" href="{% url 'make_booking' %}"
+                    aria-label="Go to the table booking form">Book Table</a>
+            </div>
+        </div>
+    </div>
+    {% if not bookings%}
+        <div class="row booking-content">
+            <div class="col-12 col-md-6 mx-auto my-4 bg-color-white booking-card txt-dark lead">
+                <p class="my-2 text-center">You currently have no upcoming bookings.</p>
+            </div>
+        </div>
+    {% endif %}
+    {% for booking in bookings %}
+        <!-- Booking information card -->
+        <div class="row booking-content">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto my-3 bg-color-white booking-card txt-dark lead">
+                <div class="row">
+                    <div class="col-12 col-sm-6 mt-2 mb-4">
+                        <div class="booking-image-cont"></div>
+                    </div>
+                    <div class="col-12 col-sm-6 mt-2 booking-info">
+                        <p>The Pizza Oven</p>
+                        <p>Table for {{ booking.party_size }} people</p>
+                        <p>{{ booking.date }} at {{ booking.time|time:"H:i" }}</p>
+                    </div>
+                    <div class="col-12 mt-2">
+                         <!-- Options to update or cancel booking -->
+                        <p class="mb-0">Click on the links below to change or cancel your booking:</p>
+                        <a class="mb-2" href="{% url 'update_booking' booking.id %}"
+                            aria-label="View and update the booking">Update</a>
+                        <button class="btn-delete manage-delete mb-2"
+                            data-delete-url="{% url 'delete_booking' booking.id %}">Cancel Booking</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

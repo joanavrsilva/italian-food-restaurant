@@ -1,0 +1,20 @@
+Dear {{ booking.name }},
+
+Thank you for booking a table at the Pizza Oven.
+We look forward to welcoming you for some great tasting Pizza.
+
+You booking summary is below:
+
+Booking Date: {{ booking.date }}
+Booking Time: {{ booking.time }}
+Party Size: {{ booking.party_size }}
+
+Special Requirements: {{ booking.special_requirements }}
+
+You can change or cancel your booking by logging onto your account.
+
+If you have any queries please feel free to respond to this email or phone us on 020 7946 0441.
+
+Thank you,
+
+The Pizza Oven Team

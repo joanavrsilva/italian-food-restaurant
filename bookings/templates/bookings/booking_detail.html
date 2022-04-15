@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Summary of details of an individual booking for restaurant owner -->
+<div class="container-fluid bg-color-green manage-bookings">
+    <div class="row">
+        <div class="col-12 col-sm-10 col-md-12 col-lg-10 col-xl-8 mx-auto manage-content">
+            <h3 class="text-center mb-2">Booking Detail</h3>
+            <div class="text-center">
+                <a href="{% url 'manage_bookings' %}" aria-label="Back to manage bookings page"
+                    class="btn btn-large btn-red"><i class="fas fa-chevron-left"></i>
+                    Back</a>
+            </div>
+            <div class="card txt-dark bg-color-white my-4">
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <!-- Information about the booking -->
+                        <h4 class="pl-2 pt-2"><strong>Booking Information:</strong></h4>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card-body p-2">
+                            <p class="mb-1"><strong>Date and Time:</strong></p>
+                            <p class="mb-1 manage-details">{{ booking.date }} {{ booking.time|time:"H:i" }}</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card-body p-2">
+                            <p class="mb-1"><strong>Party Size:</strong></p>
+                            <p class="mb-1 manage-details">{{ booking.party_size }}
+                                {% if booking.party_size == 1%}person{% else %}people{% endif %}</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card-body p-2">
+                            <p class="mb-1"><strong>Table Size:</strong></p>
+                            {% for table in booking.tables.all %}
+                                <p class="mb-1 manage-sizes">{{ table.size }} person,</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card-body p-2">
+                            <p class="mb-1"><strong>Table No(s):</strong></p>
+                            {% if booking.table_numbers %}
+                                <p class="mb-1">{{ booking.table_numbers }}</p>
+                            {% endif %}
+                            <form class="manage-table-no" action="{% url 'add_table_no' booking.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="text" name="table_numbers" placeholder="eg. 1, 2"
+                                    aria-label="table numbers" title="table number">
+                                <button type="submit" class="p-0 border-0 bg-color-trans" aria-label="Add or replace table numbers"
+                                    title="{% if booking.table_numbers %}Replace{% else %}Add{% endif %}">
+                                    <i class="fas fa-plus-circle"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <!-- Information about the booking customer -->
+                        <h4 class="pl-2 pt-2"><strong>Customer Information:</strong></h4>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                        <div class="card-body p-2">
+                            <p class="mb-1"><strong>Name:</strong></p>
+                            <p class="mb-1">{{ booking.name }}</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                        <div class="card-body p-2">
+                            <p class="mb-1"><strong>Phone Number:</strong></p>
+                            <p class="mb-1">{{ booking.phone_number }}</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <div class="card-body p-2">
+                            <p class="mb-1"><strong>Email:</strong></p>
+                            <p class="mb-1">{{ booking.email }}</p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card-body p-2">
+                            <p class="mb-1"><strong>Requirements:</strong></p>
+                            {% if booking.special_requirements %}
+                                <p class="mb-1">{{ booking.special_requirements }}</p>
+                            {% else %}
+                                <p class="mb-1">None</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <!-- Options to update or cancel booking -->
+                <div class="manage-options pl-2 pb-3">
+                    <a href="{% url 'update_booking' booking.id %}" aria-label="View and update the booking">Update</a>
+                    <button class="btn-delete manage-delete pl-1"
+                        data-delete-url="{% url 'delete_booking' booking.id %}">Cancel Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
