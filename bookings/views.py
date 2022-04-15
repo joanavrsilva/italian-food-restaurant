@@ -15,7 +15,7 @@ def make_booking(request):
     """
     Display the booking form and make a booking.
     """
-    restaurant = Restaurant.objects.get(name="The Pizza Oven")
+    restaurant = Restaurant.objects.get(name="Il oro d'Italia")
     # Create time slots between restaurant opening and closing
     # for the booking form time selection.
     slots = create_booking_slots(
@@ -163,7 +163,7 @@ def update_booking(request, booking_id):
     """
     Allow the logged in user to make changes to an existing booking.
     """
-    restaurant = Restaurant.objects.get(name="The Pizza Oven")
+    restaurant = Restaurant.objects.get(name="Il oro d'Italia")
     # Create time slots between restaurant opening and closing
     # for the booking form time selection.
     slots = create_booking_slots(

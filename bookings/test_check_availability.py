@@ -9,7 +9,7 @@ from .check_availability import find_tables
 class TestCheckAvailability(TestCase):
     """ Tests for the available table searches. """
     def setUp(self):
-        self.restaurant = Restaurant.objects.create(name='The Pizza Oven')
+        self.restaurant = Restaurant.objects.create(name='Il oro d'Italia')
         self.table1 = Table.objects.create(restaurant=self.restaurant, size=4)
         self.table2 = Table.objects.create(restaurant=self.restaurant, size=4)
         self.table3 = Table.objects.create(restaurant=self.restaurant, size=2)

@@ -1,6 +1,6 @@
 Dear {{ booking.name }},
 
-Thank you for booking a table at the Pizza Oven.
+Thank you for booking a table at Il oro d'Italia.
 We look forward to welcoming you for some great tasting Pizza.
 
 You booking summary is below:
@@ -17,4 +17,4 @@ If you have any queries please feel free to respond to this email or phone us on
 
 Thank you,
 
-The Pizza Oven Team
+Il oro d'Italia Team

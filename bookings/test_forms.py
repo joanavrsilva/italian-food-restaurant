@@ -10,7 +10,7 @@ from .forms import BookingForm
 class TestBookingForm(TestCase):
     """ Tests for the booking form. """
     def setUp(self):
-        self.restaurant = Restaurant.objects.create(name='The Pizza Oven')
+        self.restaurant = Restaurant.objects.create(name='Il oro d'Italia')
         self.table = Table.objects.create(restaurant=self.restaurant, size=2)
         self.slots = create_booking_slots(
             self.restaurant.opening_time, self.restaurant.closing_time)

@@ -16,7 +16,7 @@ class TestViews(TestCase):
         self.user = User.objects.create_user(
             'john', 'john@email.com', 'johnpassword')
 
-        self.restaurant = Restaurant.objects.create(name='The Pizza Oven')
+        self.restaurant = Restaurant.objects.create(name='Il oro d'Italia')
         self.table = Table.objects.create(restaurant=self.restaurant, size=2)
         self.table = Table.objects.create(restaurant=self.restaurant, size=4)
         self.booking = Booking.objects.create(

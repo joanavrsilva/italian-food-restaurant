@@ -1,1 +1,1 @@
-The Pizza Oven Booking Confirmation for {{ booking.date }}
+Il oro d'Italia Booking Confirmation for {{ booking.date }}

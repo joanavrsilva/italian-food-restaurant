@@ -8,7 +8,7 @@ def index(request):
     A view to return the homepage. Fields from the restaurant
     model will be used to populate some sections of the page.
     """
-    restaurant = Restaurant.objects.get(name="The Pizza Oven")
+    restaurant = Restaurant.objects.get(name="Il oro d'Italia")
     context = {
         'restaurant': restaurant,
     }
