@@ -96,7 +96,7 @@ In the course of creating the site another two pages, booking confirmed (adapted
 
 ### Models and Database Schema
 
-![Database Schema](readme/database-schema/database-schema.png)
+![database-schema](https://user-images.githubusercontent.com/83631970/163695379-02c895f0-4008-4f7d-8092-94f2cdc04202.jpg)
 
 The site is based around three custom models:
 * **Restaurant** - This provides some general information about the restaurant. It allows the restaurant owner keep their homepage fresh by updating the description or the menu file. It also allows them to set the restaurant opening and closing times which define the first and last slot of the booking system. The inclusion of a restaurant model with tables connected via a Foreign Key relationship would allow, without too many changes, the expansion of the booking system to multiple restaurants in the future.
